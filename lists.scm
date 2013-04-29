@@ -49,7 +49,7 @@
 	  ((not (eq? n 1))
 	   (if (negative-car? lst)
 	       #t
-	       (nglist-iter
+	       (neg-in-list-iter
 		 (cdr lst)
 		 (- n 1))))
 	  (else (display "done\n")))))
@@ -124,4 +124,17 @@
 		(list-sublists-iter
 		 (cdr lst))))))))
 		   
+
+;; find if n1 is a multiplier of n2
+;; (mul-of-n? (cons 6 3)) --> #t
+
+(define mul-of-n?
+  (lambda (cns)
+    (cond ((eq? (cdr cns) 0)
+	   (display "can not divide with zero\n"))
+	  ((eq? (modulo (car cns)
+			(cdr cns))
+		0)
+	   #t)
+	   (else #f))))
 
