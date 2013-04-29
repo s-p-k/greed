@@ -80,7 +80,7 @@
 	     (if (atom? (car lst))
 		 #f
 		 #t))
-	    ((not (atom? (car lst)))
+	    ((not-atom? (car lst))
 	     #t)
 	    (else 
 	     (- l 1)
