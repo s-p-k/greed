@@ -82,7 +82,7 @@ Todo:
 
 04. Write but-nth procedure to return all but the nth element of a list
 
-05. Based oon but-nth, write but-last.
+05. Based on but-nth, write but-last.
 
 06. Write count-sublists to find the number of sublists in a list.
 
