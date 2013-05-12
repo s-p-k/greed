@@ -8,7 +8,7 @@
 
 ;; nth element of a list
 ;; use example:
-;; (nth 3 '(1 2 3 4 5 6)) --> 4
+;; (nth 3 '(1 2 3 4 5 6)) --> 3
 
 (define nth
   (lambda (n lst)
@@ -124,17 +124,4 @@
 		(list-sublists-iter
 		 (cdr lst))))))))
 		   
-
-;; find if n1 is a multiplier of n2
-;; (mul-of-n? (cons 6 3)) --> #t
-
-(define mul-of-n?
-  (lambda (cns)
-    (cond ((eq? (cdr cns) 0)
-	   (display "can not divide with zero\n"))
-	  ((eq? (modulo (car cns)
-			(cdr cns))
-		0)
-	   #t)
-	   (else #f))))
 
