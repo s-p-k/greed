@@ -1,21 +1,21 @@
 This is a small package to work with lists in chicken scheme. 
 --------------------------------------------------------------------------------
 1. nth
-
+--------------------------------------------------------------------------------
 return the nth element of a list. To return the third element (n=3):
 
 (nth 3 '(1 2 7 4 5 6)) ==>
 7
 
 2. last
-
+--------------------------------------------------------------------------------
 last returns the last element of a list:
 
 (last '(1 2 3 5)) ==>
 5
 
 3. neg-in-list?
-
+--------------------------------------------------------------------------------
 searches in a list for negative numbers:
 
 (neg-in-list? '(2 -2 4)) ==>
@@ -25,7 +25,7 @@ searches in a list for negative numbers:
 #f
 
 4. sublist?
-
+--------------------------------------------------------------------------------
 searches in a list for sublists:
 
 (sublist? (list 1 2 3 45 (list -1 'k))) ==>
@@ -35,7 +35,7 @@ searches in a list for sublists:
 #f
 
 5. list-sublists
-
+--------------------------------------------------------------------------------
 returns all sublists in a list:
 
 (list-sublists (list 1 2 (list 4 5 6 8) (list 5 6 66 0))) ==>
@@ -45,7 +45,7 @@ returns all sublists in a list:
 Some fixes must be done for the double parentheses in second sublist.
 
 6. positive-car? - negative-car?
-
+-------------------------------------------------------------------------------
 Nothing special: just check if the car of a list is positive or negative:
 
 (negative-car? (list -1 2 3 5)) ==>
@@ -61,7 +61,7 @@ Nothing special: just check if the car of a list is positive or negative:
 #t
 
 7. not-atom?
-
+--------------------------------------------------------------------------------
 just the oposite of atom?
 
 (not-atom? (list 1 2 3)) ==>
@@ -73,11 +73,25 @@ just the oposite of atom?
 --------------------------------------------------------------------------------
 Todo:
 
-1. Rewrite some of the procedures without using begin.
+01. Rewrite some of the procedures without using begin.
 
-2. Improve neg-in-list? to work for sublists too.
+02. Improve neg-in-list? to work for sublists too. Improve error checking.
 
-More procedures will be added as soon as possible.
+03. Improve list-sublists so that it doesn't print double parenetheses.
+    Improve error checking.
 
-3. Improve list-sublists so that it doesn't print double parenetheses.
+04. Write but-nth procedure to return all but the nth element of a list
 
+05. Based oon but-nth, write but-last.
+
+06. Write count-sublists to find the number of sublists in a list.
+
+07. Write a procedure to add car by car the elements of two lists, lst1 and lst2
+
+08. Write a procedure to convert (list (list 1 2) (list 1 2 4) 4 5) to:
+
+	 (list 1 2 1 2 4 4 5) (to-single-list lst)
+
+09. Write a procedure that removes duplicates from a list.
+
+10. 
