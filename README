@@ -7,9 +7,9 @@ This is a small package to work with lists in chicken scheme.
 05 - list-sublists
 06 - positive-car?, negative-car?
 07 - not-atom?
-
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
 01. nth
 --------------------------------------------------------------------------------
 return the nth element of a list. To return the third element (n=3):
@@ -17,6 +17,7 @@ return the nth element of a list. To return the third element (n=3):
 (nth 3 '(1 2 7 4 5 6)) ==>
 7
 
+--------------------------------------------------------------------------------
 02. last
 --------------------------------------------------------------------------------
 last returns the last element of a list:
@@ -24,6 +25,7 @@ last returns the last element of a list:
 (last '(1 2 3 5)) ==>
 5
 
+--------------------------------------------------------------------------------
 03. neg-in-list?
 --------------------------------------------------------------------------------
 searches in a list for negative numbers:
@@ -34,6 +36,7 @@ searches in a list for negative numbers:
 (neg-in-list? '(2 2 4)) ==>
 #f
 
+--------------------------------------------------------------------------------
 04. sublist?
 --------------------------------------------------------------------------------
 searches in a list for sublists:
@@ -44,6 +47,7 @@ searches in a list for sublists:
 (sublist? (list 1 2 3 45)) ==>
 #f
 
+--------------------------------------------------------------------------------
 05. list-sublists
 --------------------------------------------------------------------------------
 returns all sublists in a list:
@@ -55,7 +59,7 @@ returns all sublists in a list:
 Some fixes must be done for the double parentheses in second sublist.
 
 06. positive-car? - negative-car?
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Nothing special: just check if the car of a list is positive or negative:
 
 (negative-car? (list -1 2 3 5)) ==>
@@ -70,6 +74,7 @@ Nothing special: just check if the car of a list is positive or negative:
 (positive-car? (list 1 2 3 -5))
 #t
 
+--------------------------------------------------------------------------------
 07. not-atom?
 --------------------------------------------------------------------------------
 just the oposite of atom?
@@ -104,4 +109,3 @@ Todo:
 
 09. Write a procedure that removes duplicates from a list.
 
-10. 
