@@ -1,20 +1,30 @@
 This is a small package to work with lists in chicken scheme. 
 --------------------------------------------------------------------------------
-1. nth
+01 - nth
+02 - last
+03 - neg-in-list?
+04 - sublist?
+05 - list-sublists
+06 - positive-car?, negative-car?
+07 - not-atom?
+
+
+
+01. nth
 --------------------------------------------------------------------------------
 return the nth element of a list. To return the third element (n=3):
 
 (nth 3 '(1 2 7 4 5 6)) ==>
 7
 
-2. last
+02. last
 --------------------------------------------------------------------------------
 last returns the last element of a list:
 
 (last '(1 2 3 5)) ==>
 5
 
-3. neg-in-list?
+03. neg-in-list?
 --------------------------------------------------------------------------------
 searches in a list for negative numbers:
 
@@ -24,7 +34,7 @@ searches in a list for negative numbers:
 (neg-in-list? '(2 2 4)) ==>
 #f
 
-4. sublist?
+04. sublist?
 --------------------------------------------------------------------------------
 searches in a list for sublists:
 
@@ -34,7 +44,7 @@ searches in a list for sublists:
 (sublist? (list 1 2 3 45)) ==>
 #f
 
-5. list-sublists
+05. list-sublists
 --------------------------------------------------------------------------------
 returns all sublists in a list:
 
@@ -44,7 +54,7 @@ returns all sublists in a list:
 
 Some fixes must be done for the double parentheses in second sublist.
 
-6. positive-car? - negative-car?
+06. positive-car? - negative-car?
 -------------------------------------------------------------------------------
 Nothing special: just check if the car of a list is positive or negative:
 
@@ -60,7 +70,7 @@ Nothing special: just check if the car of a list is positive or negative:
 (positive-car? (list 1 2 3 -5))
 #t
 
-7. not-atom?
+07. not-atom?
 --------------------------------------------------------------------------------
 just the oposite of atom?
 
