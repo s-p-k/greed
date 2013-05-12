@@ -1,4 +1,4 @@
-This is a small package to work with lists in scheme. 
+This is a small package to work with lists in chicken scheme. 
 --------------------------------------------------------------------------------
 1. nth
 
