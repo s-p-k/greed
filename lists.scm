@@ -133,21 +133,3 @@
 		(- l 1)
 		(list-sublists-iter
 		 (cdr lst))))))))
-		   
-;; sort a list by increasing order
-
-;(define inc-sort
-;  (lambda (lst)
-;    (let ((l (length lst)))
-;      (if (even? l)
-;	  (sort-even lst)
-;	  (else (sort-odd lst))))))
-
-;(define sort-even
-;  (lambda (lst)
-;    (let ((n (length lst)))
-;      (cond ((eq? n 2))
-;	    (if (> (car lst) (cdr lst))
-;		(list (l
-	  
-	   
