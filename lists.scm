@@ -1,3 +1,13 @@
+;; swap elements of a pair
+
+(define swap-pair
+  (lambda (pr)
+    (if (not (pair? pr))
+	     (display "swap-pair takes as input a pair\n"))
+    (let ((first (car pr))
+	   (second (cdr pr)))
+      (cons second first))))
+
 ;; find if something is not an atom
 
 (define not-atom?
@@ -124,4 +134,20 @@
 		(list-sublists-iter
 		 (cdr lst))))))))
 		   
+;; sort a list by increasing order
 
+;(define inc-sort
+;  (lambda (lst)
+;    (let ((l (length lst)))
+;      (if (even? l)
+;	  (sort-even lst)
+;	  (else (sort-odd lst))))))
+
+;(define sort-even
+;  (lambda (lst)
+;    (let ((n (length lst)))
+;      (cond ((eq? n 2))
+;	    (if (> (car lst) (cdr lst))
+;		(list (l
+	  
+	   
