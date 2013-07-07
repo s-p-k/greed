@@ -114,7 +114,7 @@
 			  (not-atom? (cdr lst)))
 		     (begin (display (car lst))
 			    (newline)
-			    (display (cdr lst))
+			    (display (cadr lst))
 			    (newline)))
 		    ((not-atom? (car lst))
 		     (begin (display (cdr lst))
