@@ -99,20 +99,17 @@ Todo:
 
 02. Improve neg-in-list? to work for sublists too. Improve error checking.
 
-03. Improve list-sublists so that it doesn't print double parenetheses.
-    Improve error checking.
+03. Write but-nth procedure to return all but the nth element of a list
 
-04. Write but-nth procedure to return all but the nth element of a list
+04. Based on but-nth, write but-last.
 
-05. Based on but-nth, write but-last.
+05. Write count-sublists to find the number of sublists in a list.
 
-06. Write count-sublists to find the number of sublists in a list.
+06. Write a procedure to add car by car the elements of two lists, lst1 and lst2
 
-07. Write a procedure to add car by car the elements of two lists, lst1 and lst2
-
-08. Write a procedure to convert (list (list 1 2) (list 1 2 4) 4 5) to:
+07. Write a procedure to convert (list (list 1 2) (list 1 2 4) 4 5) to:
 
 	 (list 1 2 1 2 4 4 5) (to-single-list lst)
 
-09. Write a procedure that removes duplicates from a list.
+08. Write a procedure that removes duplicates from a list.
 
