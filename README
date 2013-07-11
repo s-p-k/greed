@@ -7,7 +7,7 @@ This is a small package to work with lists in chicken scheme.
 05 - list-sublists
 06 - positive-car?, negative-car?
 07 - not-atom?
-08 - swap-pair?
+08 - swap-pair
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
