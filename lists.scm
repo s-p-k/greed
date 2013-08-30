@@ -1,3 +1,13 @@
+;; swap elements of a pair
+
+(define swap-pair
+  (lambda (pr)
+    (if (not (pair? pr))
+	     (display "swap-pair takes as input a pair\n"))
+    (let ((first (car pr))
+	   (second (cdr pr)))
+      (cons second first))))
+
 ;; find if something is not an atom
 
 (define not-atom?
@@ -104,7 +114,7 @@
 			  (not-atom? (cdr lst)))
 		     (begin (display (car lst))
 			    (newline)
-			    (display (cdr lst))
+			    (display (cadr lst))
 			    (newline)))
 		    ((not-atom? (car lst))
 		     (begin (display (cdr lst))
@@ -123,5 +133,3 @@
 		(- l 1)
 		(list-sublists-iter
 		 (cdr lst))))))))
-		   
-
