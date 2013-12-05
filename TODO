@@ -1,0 +1,20 @@
+Todo:
+
+* Rewrite some of the procedures without using begin.
+
+* Improve neg-in-list? to work for sublists too. Improve error checking.
+
+* Write but-nth procedure to return all but the nth element of a list
+
+* Based on but-nth, write but-last.
+
+* Write count-sublists to find the number of sublists in a list.
+
+* Write a procedure to add car by car the elements of two lists, lst1 and lst2
+
+* Write a procedure to convert (list (list 1 2) (list 1 2 4) 4 5) to:
+
+	 (list 1 2 1 2 4 4 5) (to-single-list lst)
+
+* Write a procedure that removes duplicates from a list.
+
