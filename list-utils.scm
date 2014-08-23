@@ -133,3 +133,11 @@
 		(- l 1)
 		(list-sublists-iter
 		 (cdr lst))))))))
+
+;; check if an element exists in a list
+
+(define exists-in?
+  (lambda (ele lst)
+    (cond ((null? lst) #f)
+          ((equal? ele (car lst)) #t)
+          (else (exists-in? ele (cdr lst))))))

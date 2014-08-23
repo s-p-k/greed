@@ -1,27 +1,42 @@
+(load "list-utils.scm")
+
+;; acceptable color bands
+(define acceptable-colors
+  (list "blk" "brn" "red" "orn" "yel" "gre" "blu" "vio" "gol" "sil" "gra" "whi"))
+
+(define valid-color?
+  (lambda (clr)
+    (cond ((exists-in? clr acceptable-colors) #t)
+	 (else #f))))
+
 (define temp-coef-color
   (lambda (clr)
-    (cond ((equal? clr "brn") '100ppm)
-	   ((equal? clr "red") '50ppm)
-	   ((equal? clr "orn") '15ppm)
-	   ((equal? clr "yel") '25ppm)
-	   ((equal? clr "blu") '10ppm)
-	   ((equal? clr "vio") '5ppm)
-	   (else (display "temp-coef-color: color not found\n")))))
+    (cond ((not (valid-color? clr))
+	    (display "temp-coef-color: color not found\n"))
+	  ((equal? clr "brn") '100ppm)
+	  ((equal? clr "red") '50ppm)
+	  ((equal? clr "orn") '15ppm)
+	  ((equal? clr "yel") '25ppm)
+	  ((equal? clr "blu") '10ppm)
+	  (else '5ppm)))) ; it's violet
 
 (define tolerance-color
   (lambda (clr)
-    (cond ((equal? clr "brn") '1%)
+    (cond ((not (valid-color? clr))
+	   (display "tolerance-color: color not found\n"))
+	  ((equal? clr "brn") '1%)
 	  ((equal? clr "red") '2%)
 	  ((equal? clr "gre") '0.5%)
 	  ((equal? clr "blu") '0.25%)
 	  ((equal? clr "vio") '0.1%)
 	  ((equal? clr "gol") '5%)
-	  ((equal? clr "sil") '10%)
-	  (else (display "tolerance-color: color not found\n")))))
+	  (else '10%)))) ; it's silver
 
 (define multiplier-color
   (lambda (clr)
-    (cond ((equal? clr "blk") 1)
+    (cond ((not (valid-color? clr))
+	   (display "multiplier-color: color not found"))
+	  ((equal? clr "blk") 1)
 	  ((equal? clr "brn") 10)
 	  ((equal? clr "red") 100)
 	  ((equal? clr "orn") 1000)
@@ -30,12 +45,13 @@
 	  ((equal? clr "blu") 1000000)
 	  ((equal? clr "vio") 10000000)
 	  ((equal? clr "gol") 0.1)
-	  ((equal? clr "sil") 0.01)
-	  (else (display "multiplier-color: color not found")))))
+	  (else 0.01)))) ; it's silver
 
 (define first-bands
   (lambda (clr)
-    (cond ((equal? clr "blk") 0)
+    (cond ((not (valid-color? clr))
+	   (display "first-bands: color not found\n"))
+	   ((equal? clr "blk") 0)
 	  ((equal? clr "brn") 1)
 	  ((equal? clr "red") 2)
 	  ((equal? clr "orn") 3)
@@ -44,8 +60,7 @@
 	  ((equal? clr "blu") 6)
 	  ((equal? clr "vio") 7)
 	  ((equal? clr "gra") 8)
-	  ((equal? clr "whi") 9)
-	  (else (display "first-bands: color not found\n")))))
+	  (else 9)))) ; it's white
 
 ;; currently supports only 3-band resistors
 ;; usage example:
@@ -54,6 +69,8 @@
 (define colors-to-resistance
   (lambda (lst)
     (cond ((null? lst) (display "null list\n"))
+	  ((> (length lst) 6)
+	      (display "resistors have max 6 bands, try again\n"))
 	  ((eq? (length lst) 3)
 	   (let ((res (* (expt 10 (first-bands (caddr lst)))
 	      (+ (* (first-bands (car lst)) 10)
@@ -63,4 +80,8 @@
 		    (display " Ohm, tolerace: ")
 		    (display tol)
 		    (newline))))
+	  ((eq? (length lst) 4)
+	   (if (or (not (eq? (last lst) "gol"))
+		   (not (eq? (last lst) "sil")))
+	       (display "Wrong tolerance: use either gol or sil\n")))
 	  (else (display "not yet implemented\n")))))
