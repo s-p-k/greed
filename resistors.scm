@@ -47,7 +47,10 @@
 	  ((equal? clr "whi") 9)
 	  (else (display "first-bands: color not found\n")))))
 
-; currently supports only 3-band resistors
+;; currently supports only 3-band resistors
+;; usage example:
+;; (colors-to-resistance (list "red" "blk" "red")) --> 2000 Ohm, tolerace: 20%
+
 (define colors-to-resistance
   (lambda (lst)
     (cond ((null? lst) (display "null list\n"))
@@ -60,4 +63,4 @@
 		    (display " Ohm, tolerace: ")
 		    (display tol)
 		    (newline))))
-	  (else (display "not yet implemented")))))
+	  (else (display "not yet implemented\n")))))
