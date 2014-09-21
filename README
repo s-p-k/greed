@@ -1,94 +1,183 @@
-This is a small package to work with lists in chicken scheme. 
---------------------------------------------------------------------------------
-01 - nth
-02 - last
-03 - neg-in-list?
-04 - sublist?
-05 - list-sublists
-06 - positive-car?, negative-car?
-07 - not-atom?
-08 - swap-pair
---------------------------------------------------------------------------------
+================================================================================
+scheme-utils - Brief scheme-utils documentation
+================================================================================
 
---------------------------------------------------------------------------------
-01. nth
---------------------------------------------------------------------------------
-return the nth element of a list. To return the third element (n=3):
+  scheme-utils is a collection of scheme utils i write from time to time
+  for educational purposes or when i want to write some code really
+  fast. That's when scheme comes to the rescue. The scheme implementation
+  of my choice is chicken.
 
-(nth 3 '(1 2 7 4 5 6)) ==>
-7
 
---------------------------------------------------------------------------------
-02. last
---------------------------------------------------------------------------------
-last returns the last element of a list:
+================================================================================
+0.0 Packages
+================================================================================
 
-(last '(1 2 3 5)) ==>
-5
+The currently available packages are:
 
---------------------------------------------------------------------------------
-03. neg-in-list?
---------------------------------------------------------------------------------
-searches in a list for negative numbers:
+  * list-utils.scm
+  * resistors.scm
+  * math.scm
 
-(neg-in-list? '(2 -2 4)) ==>
-#t
+================================================================================
+1. list-utils.scm
+================================================================================
 
-(neg-in-list? '(2 2 4)) ==>
-#f
+=============
+1.0 swap-pair
+=============
 
---------------------------------------------------------------------------------
-04. sublist?
---------------------------------------------------------------------------------
-searches in a list for sublists:
+  swap-pair takes as input a pair and it returns it's elements swaped.
 
-(sublist? (list 1 2 3 45 (list -1 'k))) ==>
-#t
+  > (swap-pair (cons 1 2))
+  (2 . 1)
 
-(sublist? (list 1 2 3 45)) ==>
-#f
+  > (swap-pair (cons 1 (list 1 2 3)))
+  ((1 2 3) . 1)
 
---------------------------------------------------------------------------------
-05. list-sublists
---------------------------------------------------------------------------------
-returns all sublists in a list:
+=============
+1.1 not-atom?
+=============
 
-(list-sublists (list 1 2 (list 4 5 6 8) (list 5 6 66 0))) ==>
-(4 5 6 8)
-(5 6 66 0)
+  nothing special here: check if something is not an atom > (atom? 3) #t
+  > (atom? (list 12 3))
+  #f
 
-06. positive-car? - negative-car?
---------------------------------------------------------------------------------
-Nothing special: just check if the car of a list is positive or negative:
+=======
+1.2 nth
+=======
 
-(negative-car? (list -1 2 3 5)) ==>
-#t
+  return the nth element of a list. To return the third element (n=3):
 
-(negative-car? (list 1 2 -3 5)) ==>
-#f
+  > (nth 3 '(1 2 7 4 5 6))
+  7
 
-(positive-car? (list -1 2 3 5)) ==>
-#f
+========
+1.3 last
+========
 
-(positive-car? (list 1 2 3 -5))
-#t
+  last returns the last element of a list:
 
---------------------------------------------------------------------------------
-07. not-atom?
---------------------------------------------------------------------------------
-just the oposite of atom?
+  > (last '(1 2 3 5))
+  5
 
-(not-atom? (list 1 2 3)) ==>
-#t
+=================
+1.4 negative-car?
+=================
 
-(not-atom? 2) ==>
-#f
--------------------------------------------------------------------------------
-08. swap-pair
--------------------------------------------------------------------------------
-swap the elements of a cons
+  return true if the car of a list is negative.
 
-(swap-pair (cons 1 2)) ==>
-(2 . 1)
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
+  > (negative-car? (list -1 2 3)) #t > (negative-car? (list 1 2 3))
+  #f
+
+=================
+1.5 positive-car?
+=================
+
+  return true if the car of a list is positive.
+
+  > (positive-car? (list 1 2 3)) #t > (positive-car? (list -1 2 3))
+  #f
+
+================
+1.6 neg-in-list?
+================
+
+  check if there's a negative number in a list.
+
+  > (neg-in-list? (list 2 3))
+  #f
+  > (neg-in-list? (list 2 -3))
+  #t
+
+============
+1.7 sublist?
+============
+
+  check if there's a sublist in a list.
+
+  > (sublist? (list 1 2 3))
+  #f
+  > (sublist? (list 1 2 3 (list 2 3 5)))
+  #t
+
+=================
+1.8 list-sublists
+=================
+
+  returns all the sublists in a list if there are any.
+
+  > (list-sublists (list 1 2 3 (list 1 2)))
+  ((1 2))
+  > (list-sublists (list 1 2 3))
+  no sublists exist
+
+==============
+1.9 exists-in?
+==============
+
+  check if an element exists in a list.
+
+  > (exists-in? 5 (list 1 2 3))
+  #f
+  > (exists-in? 5 (list 1 2 3 5))
+  #t
+
+================================================================================
+2 resistors.scm
+================================================================================
+
+  resistors.scm is a set of utilities that enables the user to convert
+  from the color code of a resistance to the actual value in Ohms.
+  resistors.scm needs list-utils.scm to function properly. Currently the
+  package supports only three-band resistors. An example of what we can
+  do whith this package:
+
+========================
+2.0 colors-to-resistance
+========================
+
+  > (colors-to-resistance (list "red" "blk" "red"))
+  2000 Ohm, tolerace: 20%
+
+================================================================================
+3. math.scm
+================================================================================
+
+  math.scm is intended to be a package that has what the name says: some
+  math utilities. I just started it, but i might add some more in the
+  future. All that you can do right now is compute the sum of the
+  geometric progression (geometric-series) of 1, 2, 4, 8 ...
+
+=========================
+3.0 geometric-progression
+=========================
+
+  > (geometric-progression 5 1)
+  31
+
+  What the above does is: (+ 1 2 4 8 16)
+
+================================================================================
+4. Future ideas
+================================================================================
+
+  - This is a TODO list of the list-utils:
+
+  * Rewrite some of the procedures without using begin.
+
+  * Improve neg-in-list? to work for sublists too. Improve error
+    checking.
+
+  * Write but-nth procedure to return all but the nth element of a list
+
+  * Based on but-nth, write but-last.
+
+  * Write count-sublists to find the number of sublists in a list.
+
+  * Write a procedure to add car by car the elements of two lists, lst1
+    and lst2
+
+  * Write a procedure to convert (list (list 1 2) (list 1 2 4) 4 5) to:
+    (list 1 2 1 2 4 4 5) (to-single-list lst)
+
+  * Write a procedure that removes duplicates from a list.
