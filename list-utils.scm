@@ -141,3 +141,9 @@
     (cond ((null? lst) #f)
           ((equal? ele (car lst)) #t)
           (else (exists-in? ele (cdr lst))))))
+
+;; return randomly an element of a list. if random is random at all ;)
+
+(define (random-element lst)
+  (list-ref lst (random (length lst))))
+
