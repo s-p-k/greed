@@ -1,3 +1,13 @@
+;; insert e in position n of lst (indexing of list starts from zero).
+
+(define insert
+  (lambda (lst position ele)
+    (cond ((eq? position 0) (cons ele lst))
+	  (else (cons (car lst)
+		      (insert (cdr lst)
+			      (- position 1)
+			      ele))))))
+
 ;; swap elements of a pair
 
 (define swap-pair
