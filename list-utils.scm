@@ -1,4 +1,4 @@
-;; insert e in position n of lst (indexing of list starts from zero).
+;; insert element in position of lst
 
 (define insert
   (lambda (lst position ele)
