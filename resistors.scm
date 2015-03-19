@@ -62,7 +62,7 @@
 	  ((equal? clr "gra") 8)
 	  (else 9)))) ; it's white
 
-;; currently supports only 3-band resistors
+;; currently supports only 3-band and 4-band resistors
 ;; usage example:
 ;; (colors-to-resistance (list "red" "blk" "red")) --> 2000 Ohm, tolerace: 20%
 
@@ -77,11 +77,17 @@
 		 (first-bands (cadr lst)))))
 		 (tol '20%))
 	     (begin (display res)
-		    (display " Ohm, tolerace: ")
+		    (display " Ohm, tolerance: ")
 		    (display tol)
 		    (newline))))
 	  ((eq? (length lst) 4)
-	   (if (or (not (eq? (last lst) "gol"))
-		   (not (eq? (last lst) "sil")))
-	       (display "Wrong tolerance: use either gol or sil\n")))
-	  (else (display "not yet implemented\n")))))
+	   (let ((res (* (+ (* 10 (first-bands (car lst)))
+			    (first-bands (nth 2 lst)))
+			    (expt 10 (first-bands (nth 3 lst)))))
+		 (tol (tolerance-color (last lst))))
+	     (begin (display res)
+		    (display " Ohm, tolerance: ")
+		    (display tol)
+		    (newline))))
+	  (else (display "5 and 6-band resistors aren't supported yet")))))
+
