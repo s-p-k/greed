@@ -62,7 +62,6 @@
 	  ((equal? clr "gra") 8)
 	  (else 9)))) ; it's white
 
-;; currently supports only 3-band and 4-band resistors
 ;; usage example:
 ;; (colors-to-resistance (list "red" "blk" "red")) --> 2000 Ohm, tolerace: 20%
 
