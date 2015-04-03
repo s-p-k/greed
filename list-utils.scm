@@ -18,6 +18,22 @@
 	   (second (cdr pr)))
       (cons second first))))
 
+
+;; append element to a list
+
+(define append-element
+  (lambda (ele lst)
+    (append lst (cons ele
+		      '()))))
+
+;; prepend element to a list
+
+(define prepend-element
+  (lambda (lst ele)
+    (cond ((null? lst) '())
+	  (else (cons ele
+		      lst)))))
+
 ;; find if something is not an atom
 
 (define not-atom?
