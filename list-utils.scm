@@ -37,6 +37,14 @@
 	  (else (cons ele
 		      lst)))))
 
+;; Convert list of lists to a single list
+
+(define flatten-list
+  (lambda (lst)
+    (cond ((null? lst) '())
+	  ((not (list? lst)) (list lst))
+	  (else (apply append (map flatten-list lst))))))
+
 ;; find if something is not an atom
 
 (define not-atom?
