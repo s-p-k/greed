@@ -8,26 +8,26 @@
   greed is a collection of Scheme utilities split to three parts:
   - list-utils - a collection of utilities to manipulate Scheme list.
   - resistors - a collection of utilities that extracts information form the resistor color code.
-
   - misc - everything else that doesn't fit elsewhere.
 
   greed is written with chicken[1] Scheme implementation in mind. Current version of greed is v0.1.
 
-# Loading files
-  Loading any of the files to your Scheme interpreter is as simple as:
+# Loading greed
+  Loading greed to your Scheme interpreter is as simple as:
 
-  > (load "/path/to/file.scm")
-
-  for example to load list-utils to your interpreter something like this would
-  do the trick:
-
-  > (load "/path/to/list-utils.scm")
+  > (load "/path/to/greed.scm")
 
   If loading was succesfull, you should see something like this:
 
-  ; loading list-utils.scm ...
-  ; loaded list-utils successfully.
-  ; list-utils is part of the greed project. See the LICENSE file for details.
+  ; loading greed.scm ...
+  ; loading misc.scm ...
+  ; misc loaded successfully.
+  ;; loading list-utils.scm ...
+  ; list-utils loaded successfully.
+  ; loading resistors.scm ...
+  ; resistors loaded successfully.
+  ; greed-v0.1 loaded successfully.
+  ; See LICENSE file for details
 
 # What's in list-utils.scm
 
