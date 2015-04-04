@@ -1,3 +1,6 @@
+;;;; See LICENSE file for details
+;;;; list-utils.scm is part of the greed project, a collection of scheme utilities.
+
 ;; insert element in position of lst
 
 (define insert
@@ -13,7 +16,7 @@
 (define swap-pair
   (lambda (pr)
     (if (not (pair? pr))
-	     (display "swap-pair takes as input a pair\n"))
+	(display "swap-pair takes as input a pair\n"))
     (let ((first (car pr))
 	   (second (cdr pr)))
       (cons second first))))
@@ -173,3 +176,4 @@
 (define (random-element lst)
   (list-ref lst (random (length lst))))
 
+(format #t "; loaded list-utils successfully.~%; list-utils is part of the greed project. See the LICENSE file for details.~%")
