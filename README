@@ -18,7 +18,7 @@
 
   > (load "/path/to/file.scm")
 
-  for example loading list-utils to your interpreter something like this would
+  for example to load list-utils to your interpreter something like this would
   do the trick:
 
   > (load "/path/to/list-utils.scm")
