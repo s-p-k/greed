@@ -12,10 +12,6 @@ Todo:
 
 * Write a procedure to add car by car the elements of two lists, lst1 and lst2
 
-* Write a procedure to convert (list (list 1 2) (list 1 2 4) 4 5) to:
-
-	 (list 1 2 1 2 4 4 5) (to-single-list lst)
-
 * Write a procedure that removes duplicates from a list.
 
 * Write sort-append (Append an item to a sorted list)
