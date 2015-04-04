@@ -1,6 +1,10 @@
+;;;; See LICENSE file for details
+;;;; resistors.scm is part of the greed project, a collection of Scheme utilities.
+
 (load "list-utils.scm")
 
 ;; acceptable color bands
+
 (define acceptable-colors
   (list "blk" "brn" "red" "orn" "yel" "gre" "blu" "vio" "gol" "sil" "gra" "whi"))
 
@@ -12,7 +16,7 @@
 (define temp-coef-color
   (lambda (clr)
     (cond ((not (valid-color? clr))
-	    (display "temp-coef-color: color not found\n"))
+	   (display "temp-coef-color: color not found\n"))
 	  ((equal? clr "brn") '100ppm)
 	  ((equal? clr "red") '50ppm)
 	  ((equal? clr "orn") '15ppm)
@@ -111,3 +115,4 @@
 			 (display coef)
 			 (newline)))))))
 
+(format #t "; loaded resistors successfully.~%; resistors is part of the greed project. See the LICENSE file for details.~%")
