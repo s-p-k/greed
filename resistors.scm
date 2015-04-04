@@ -1,7 +1,7 @@
 ;;;; See LICENSE file for details
 ;;;; resistors.scm is part of the greed project, a collection of Scheme utilities.
 
-(load "list-utils.scm")
+;(load "list-utils.scm")
 
 ;; acceptable color bands
 
@@ -115,4 +115,5 @@
 			 (display coef)
 			 (newline)))))))
 
-(format #t "; loaded resistors successfully.~%; resistors is part of the greed project. See the LICENSE file for details.~%")
+(format #t "; resistors loaded successfully.~%")
+

@@ -171,4 +171,5 @@
   (lambda (lst)
     (list-ref lst (random (length lst)))))
 
-(format #t "; loaded list-utils successfully.~%; list-utils is part of the greed project. See the LICENSE file for details.~%")
+(format #t "; list-utils loaded successfully.~%")
+

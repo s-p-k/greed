@@ -19,4 +19,5 @@
 	    (else (begin (set! result (+ result (* 2 a)))
 			 (geometric-series-iter (* 2 a) (- bets 1) start)))))))
 
-(format #t "; loaded misc successfully.~%; misc is part of the greed project. See the LICENSE file for details.~%")
+(format #t "; misc loaded successfully.~%;")
+
