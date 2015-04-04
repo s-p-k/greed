@@ -147,29 +147,15 @@
   (lambda (lst)
     (let ((l (length lst)))
        (cond ((eq? l 2)
-	      (cond ((and (not-atom? (car lst))
-			  (not-atom? (cdr lst)))
-		     (begin (display (car lst))
-			    (newline)
-			    (display (cadr lst))
-			    (newline)))
-		    ((not-atom? (car lst))
-		     (begin (display (cdr lst))
-			    (newline)))
-		    (else (begin
-			    (display (cdr lst))
-				     (newline)))))
+	      (cond ((and (not-atom? (car lst)) (not-atom? (cdr lst)))
+		     (format #t "~A~%~A~%" (car lst) (cadr lst)))
+		    ((not-atom? (car lst)) (format #t "~A~%" (cdr lst)))
+		    (else (format #t "~A~%" (cdr lst)))))
 	      ((not-atom? (car lst))
-	       (begin
-		 (display (car lst))
-		 (newline)
-		 (- l 1)
-		 (list-sublists-iter (cdr lst))))
-	     (else 
-	      (begin
-		(- l 1)
-		(list-sublists-iter
-		 (cdr lst))))))))
+	       (begin (format #t "~A~%" (car lst))
+		      (- l 1)
+		      (list-sublists-iter (cdr lst))))
+	     (else (begin (- l 1) (list-sublists-iter (cdr lst))))))))
 
 ;; check if an element exists in a list
 
