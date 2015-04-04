@@ -167,7 +167,8 @@
 
 ;; return randomly an element of a list. if random is random at all ;)
 
-(define (random-element lst)
-  (list-ref lst (random (length lst))))
+(define random-element
+  (lambda (lst)
+    (list-ref lst (random (length lst)))))
 
 (format #t "; loaded list-utils successfully.~%; list-utils is part of the greed project. See the LICENSE file for details.~%")
