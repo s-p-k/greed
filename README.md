@@ -213,6 +213,9 @@
 
 # How to use resistors.scm
 
+  Converting resistor color code to information that humans can understand, all
+  the user has to do is something like:
+
     ``` scheme
     (colors-to-resistance (list "red" "blk" "red" "red"))
     2000 Ohm, tolerance: 2% ; output
