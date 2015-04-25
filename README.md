@@ -225,9 +225,9 @@
 
 # Known bugs
 
-## list-utils: list-sublist has a different output if there's only one sublist.
+#### list-utils: list-sublist has a different output if there's only one sublist.
 
-## colors-to-resistance: Doesn't make sure that all colors are acceptable.
+#### colors-to-resistance: Doesn't make sure that all colors are acceptable.
 
 Please report any bug at mr.dwts <AT> gmail <DOT> com
 
